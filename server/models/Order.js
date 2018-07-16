@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
-  shippingAddress: {
     firstName: {
       type: String,
       default: ""
@@ -26,7 +25,6 @@ const OrderSchema = new mongoose.Schema({
       type: String,
       default: ""
     },
-  }
 });
 
 module.exports = mongoose.model('Order', OrderSchema);

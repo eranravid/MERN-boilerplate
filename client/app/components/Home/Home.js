@@ -53,8 +53,8 @@ class Home extends Component {
         <ul>
           { this.state.orders.map((order, i) => (
             <li key={i}>
-              <span>{order.shippingAddress.firstName} </span>
-              <span>{order.shippingAddress.LastName} </span>
+              <span>{order.firstName} </span>
+              <span>{order.LastName} </span>
               <button onClick={() => this.deleteOrder(i)}>x</button>
             </li>
           )) }

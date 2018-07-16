@@ -25,7 +25,14 @@ class NewOrder extends Component {
   createNewOrder(event) {
     event.preventDefault();
     const form = event.target;
-    fetch('/api/newOrder', { method: 'POST' })
+    const data = new FormData(form);
+    fetch('/api/newOrder', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: data
+     })
       .then(res => res.json())
       .then(json => {
         let data = this.state.orders;
