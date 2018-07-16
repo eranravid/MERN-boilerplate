@@ -13,7 +13,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/counters')
+    fetch('/api/orders')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -27,8 +27,22 @@ class Home extends Component {
 
     fetch(`/api/orders/${id}`, { method: 'DELETE' })
       .then(_ => {
-        this._modifyCounter(index, null);
+        this._modifyOrder(index, null);
       });
+  }
+
+  _modifyOrder(index, data) {
+    let prevData = this.state.orders;
+
+    if (data) {
+      prevData[index] = data;
+    } else {
+      prevData.splice(index, 1);
+    }
+
+    this.setState({
+      orders: prevData
+    });
   }
 
   render() {

@@ -8,7 +8,7 @@ module.exports = (app) => {
       .catch((err) => next(err));
   });
 
-  app.post('/api/orders', function (req, res, next) {
+  app.post('/api/newOrder', function (req, res, next) {
     const order = new Order();
 
     order.save()
